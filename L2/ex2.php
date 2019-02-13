@@ -4,7 +4,7 @@
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
 
-$title = "Lektion 2 - Exempel 1";
+$title = "Lektion 2 - Exempel 2";
 
 ?>
 
@@ -19,30 +19,25 @@ $title = "Lektion 2 - Exempel 1";
     <title><?=$title?></title> <!-- Notera genvägen! -->
 </head>
 <body class="container pt-5 pb-5">
+
+
 <?php
 
-//OBS! tittar på URLen - lägg till ?name=magnus i slutet av URLen    
-echo "<p>" . 'Hej ' . $_GET['name'] . "</p>";
+    echo "<h3>Konstanter</h3>";
 
-//Tänk på att GET är en associativ array där 'name' är nyckeln. Detta ger oss värdet från URLen
-$name = $_GET['name'];
+    //Skapa och använd en konstant
+    define('SITE_TITLE', "Nackademin");
+    echo "<p>Detta är en konstant: " . SITE_TITLE . "</p>";
 
-//Hämta mer data via GET - Två värden med URLen ?name=magnus&order=123
+    //Konstans som Array
+    define('CARS', ['Volvo', 'Toyota']);
+    echo "<p>Mina favoritbilar: " . CARS[0] . " och " . CARS[1] . "</p>"; 
 
-echo "Hej " . $_GET['name'] . "<br>Ditt ordernummer är: " . $_GET['order'];
+    echo "<h3>" . "Magiska konstanter" . "</h3>";
 
-//Hela GET-arrayen skrivs ut, dvs. den associativa arrayen
-
-echo "<pre>";
-
-print_r($_GET);
-
-echo "</pre>";
-
-
-
-
-
+    echo __LINE__ . "<br>";
+    echo __DIR__ . "<br>";
+    ECHO __FILE__ . "<br>";
 ?>
 
 
